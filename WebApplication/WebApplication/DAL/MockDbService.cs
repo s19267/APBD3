@@ -22,5 +22,10 @@ namespace WebApplication.DAL
         {
             return _students;
         }
+
+        public string GetSemester(int id)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication.DAL;
@@ -20,7 +21,25 @@ namespace WebApplication.Controllers
         [HttpGet]
         public IActionResult GetStudents(String orderBy)
         {
-            return Ok(_dbService.GetStudents());
+            List<Student> list = (List<Student>) _dbService.GetStudents();
+            
+            string o="";
+            for (int i = 0; i < list.Count; i++)
+            {
+                Student student = list[i];
+                o = o + student.firstName + " " + student.lastName + " " + student.birthDate + " " + student.studyName +
+                    " " + student.semester + "\r\n";
+            }
+            
+            
+            return Ok(o);
+        }
+        
+        [HttpGet("{id}/semester")]
+        public IActionResult GetSemester(int id)
+        {
+            return Ok(_dbService.GetSemester(id));
+
         }
 
         [HttpGet("{id}")]
