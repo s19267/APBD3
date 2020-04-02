@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\kdhrt\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\kdhrt\.Rider2019.3\config\extensions" t="IncludeRecursive" />
     <e p="C:\Users\kdhrt\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\kdhrt\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApplication.-1623005526.00" t="ExcludeRecursive" />
     <e p="C:\Users\kdhrt\OneDrive\Pulpit\pjatk\APBD3\WebApplication" t="IncludeFlat">
@@ -10,12 +12,17 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
+          <e p="EnrollmentsController.cs" t="Include" />
           <e p="StudentController.cs" t="Include" />
         </e>
         <e p="DAL" t="Include">
           <e p="IDbService.cs" t="Include" />
           <e p="MockDbService.cs" t="Include" />
           <e p="MssqlDbService.cs" t="Include" />
+        </e>
+        <e p="DTOs" t="Include">
+          <e p="EnrollmentResponse.cs" t="Include" />
+          <e p="EnrollStudentResponse.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="Student.cs" t="Include" />
