@@ -22,6 +22,7 @@
         </e>
         <e p="DTOs" t="Include">
           <e p="EnrollmentResponse.cs" t="Include" />
+          <e p="EnrollPromoteRequest.cs" t="Include" />
           <e p="EnrollStudentResponse.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
