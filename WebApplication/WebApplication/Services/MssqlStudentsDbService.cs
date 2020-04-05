@@ -102,7 +102,7 @@ namespace WebApplication.Services
                 com.Parameters.AddWithValue("studiesName", enrollPromoteRequest.studies);
                 var dr = com.ExecuteReader();
                 if (!dr.Read())
-                {
+                { 
                     tran.Rollback();
                     return null;
                 }
