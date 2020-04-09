@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using WebApplication.DAL;
+using WebApplication.Midlewares;
 using WebApplication.Services;
 
 namespace WebApplication
@@ -28,7 +31,7 @@ namespace WebApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IDbService, MssqlDbService>();
-            services.AddSingleton<IStudentsDbService,MssqlStudentsDbService>();
+            services.AddSingleton<IStudentsDbService, MssqlStudentsDbService>();
             services.AddControllers();
         }
 
@@ -39,6 +42,40 @@ namespace WebApplication
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseMiddleware<LoggingMiddleware>();
+
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Headers.ContainsKey("Index"))
+                {
+                    String index = context.Request.Headers["Index"].ToString();
+                    using (SqlConnection con =
+                        new SqlConnection("Data Source=db-mssql;Initial Catalog=s19267;Integrated Security=True"))
+                    using (SqlCommand com = new SqlCommand())
+                    {
+                        com.Connection = con;
+                        con.Open();
+                        com.CommandText = "select * from Student where IndexNumber=@Index";
+                        com.Parameters.AddWithValue("Index", index);
+                        SqlDataReader dr = com.ExecuteReader();
+                        if (!dr.Read())
+                        {
+                            dr.Close();
+                            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                            await context.Response.WriteAsync("student nie istnieje");
+                            return;
+                        }
+
+                        dr.Close();
+                        await next();
+                    }
+                }
+
+                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                await context.Response.WriteAsync("brak autoryzacji");
+                return;
+            });
 
             app.UseHttpsRedirection();
 
