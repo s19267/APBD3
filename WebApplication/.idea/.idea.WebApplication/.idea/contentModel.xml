@@ -4,8 +4,8 @@
     <e p="C:\Users\kdhrt\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\kdhrt\.Rider2019.3\config\extensions" t="IncludeRecursive" />
     <e p="C:\Users\kdhrt\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\kdhrt\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApplication.-1623005526.00" t="ExcludeRecursive" />
-    <e p="C:\Users\kdhrt\OneDrive\Pulpit\pjatk\APBD3\WebApplication" t="IncludeFlat">
+    <e p="C:\Users\kdhrt\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApplication.-961780292.00" t="ExcludeRecursive" />
+    <e p="C:\Users\kdhrt\OneDrive\Pulpit\pjatk\APBD10\APBD3\WebApplication" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="WebApplication" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
@@ -13,6 +13,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="EnrollmentsController.cs" t="Include" />
+          <e p="EntityFrameworkControler.cs" t="Include" />
           <e p="StudentController.cs" t="Include" />
         </e>
         <e p="DAL" t="Include">
@@ -29,7 +30,29 @@
           <e p="LoggingMiddleware.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
+          <e p="StudentModel.cs" t="Include" />
+        </e>
+        <e p="Models2" t="Include">
+          <e p="Dept.cs" t="Include" />
+          <e p="Doctor.cs" t="Include" />
+          <e p="Emp.cs" t="Include" />
+          <e p="Enrollment.cs" t="Include" />
+          <e p="Gosc.cs" t="Include" />
+          <e p="Kategoria.cs" t="Include" />
+          <e p="Medicament.cs" t="Include" />
+          <e p="Miasto.cs" t="Include" />
+          <e p="Osoba.cs" t="Include" />
+          <e p="Patient.cs" t="Include" />
+          <e p="Pokoj.cs" t="Include" />
+          <e p="Prescription.cs" t="Include" />
+          <e p="PrescriptionMedicament.cs" t="Include" />
+          <e p="Rezerwacja.cs" t="Include" />
+          <e p="s19267Context.cs" t="Include" />
+          <e p="Salgrade.cs" t="Include" />
           <e p="Student.cs" t="Include" />
+          <e p="Studies.cs" t="Include" />
+          <e p="TestTable.cs" t="Include" />
+          <e p="TestTable1.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -44,6 +67,8 @@
         </e>
         <e p="requestsLog.txt" t="Include" />
         <e p="Services" t="Include">
+          <e p="EfDbService.cs" t="Include" />
+          <e p="IDbService2.cs" t="Include" />
           <e p="IStudentsDbService.cs" t="Include" />
           <e p="MssqlStudentsDbService.cs" t="Include" />
         </e>

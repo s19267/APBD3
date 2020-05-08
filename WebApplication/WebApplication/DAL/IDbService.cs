@@ -7,7 +7,7 @@ namespace WebApplication.DAL
 {
     public interface IDbService
     {
-        public IEnumerable<Student> GetStudents();
+        public IEnumerable<StudentModel> GetStudents();
         public String GetSemester(int id);
     }
 }

@@ -21,14 +21,14 @@ namespace WebApplication.Controllers
         [HttpGet]
         public IActionResult GetStudents(String orderBy)
         {
-            List<Student> list = (List<Student>) _dbService.GetStudents();
+            List<StudentModel> list = (List<StudentModel>) _dbService.GetStudents();
             
             string o="";
             for (int i = 0; i < list.Count; i++)
             {
-                Student student = list[i];
-                o = o + student.firstName + " " + student.lastName + " " + student.birthDate + " " + student.studyName +
-                    " " + student.semester + "\r\n";
+                StudentModel studentModel = list[i];
+                o = o + studentModel.firstName + " " + studentModel.lastName + " " + studentModel.birthDate + " " + studentModel.studyName +
+                    " " + studentModel.semester + "\r\n";
             }
             
             
@@ -52,17 +52,17 @@ namespace WebApplication.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateStudent(Student student)
+        public IActionResult CreateStudent(StudentModel studentModel)
         {
-            student.indexNumber = $"s{new Random().Next(1, 20000)}";
-            return Ok(student);
+            studentModel.indexNumber = $"s{new Random().Next(1, 20000)}";
+            return Ok(studentModel);
         }
 
         [HttpPut("{id}")]
-        public IActionResult PutStudent(int id, Student student)
+        public IActionResult PutStudent(int id, StudentModel studentModel)
         {
-            student.idStudent = id;
-            return Ok(student);
+            studentModel.idStudent = id;
+            return Ok(studentModel);
         }
 
         [HttpDelete("{id}")]

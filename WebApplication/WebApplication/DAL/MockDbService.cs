@@ -6,19 +6,19 @@ namespace WebApplication.DAL
 {
     public class MockDbService : IDbService
     {
-        private static IEnumerable<Student> _students;
+        private static IEnumerable<StudentModel> _students;
 
         public MockDbService()
         {
-            _students=new List<Student>
+            _students=new List<StudentModel>
             {
-                new Student{idStudent = 1,firstName = "Maciej",lastName = "Petrykowski"},
-                new Student{idStudent = 2,firstName = "Barbara",lastName = "Bis"},
-                new Student{idStudent = 3,firstName = "Daniel",lastName = "Petrykowski"},
+                new StudentModel{idStudent = 1,firstName = "Maciej",lastName = "Petrykowski"},
+                new StudentModel{idStudent = 2,firstName = "Barbara",lastName = "Bis"},
+                new StudentModel{idStudent = 3,firstName = "Daniel",lastName = "Petrykowski"},
             };
         }
 
-        public IEnumerable<Student> GetStudents()
+        public IEnumerable<StudentModel> GetStudents()
         {
             return _students;
         }

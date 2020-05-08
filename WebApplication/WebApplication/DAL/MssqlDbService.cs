@@ -7,9 +7,9 @@ namespace WebApplication.DAL
 {
     public class MssqlDbService : IDbService
     {
-        public IEnumerable<Student> GetStudents()
+        public IEnumerable<StudentModel> GetStudents()
         {
-            var list=new List<Student>();
+            var list=new List<StudentModel>();
             using (var con = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19267;Integrated Security=True"))
             using (var com = new SqlCommand())
             {
@@ -20,7 +20,7 @@ namespace WebApplication.DAL
                 var dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    Student student = new Student
+                    StudentModel studentModel = new StudentModel
                     {
                         firstName = dr["FirstName"].ToString(),
                         lastName = dr["LastName"].ToString(),
@@ -30,7 +30,7 @@ namespace WebApplication.DAL
                         studyName = dr["Name"].ToString()
                         
                     };
-                    list.Add(student);
+                    list.Add(studentModel);
                 }
             }
 
